@@ -1,0 +1,33 @@
+{
+  "name": "My YT Bookmarkz",
+  "version": "0.1.0",
+  "description": "Saving timestamps in YouTube videos.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["bookmark.png", "play.png", "delete.png", "save.png"],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "ext-icon_16.png",
+      "24": "ext-icon_24.png",
+      "32": "ext-icon_32.png",
+      "48": "ext-icon_48.png"
+    },
+    "default_title": "My YT Bookmarkz",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
